@@ -1,0 +1,14 @@
+.git
+.gitignore
+.env
+.http
+data/
+*.db
+*.db-wal
+*.db-shm
+Dockerfile
+.dockerignore
+docker-compose.yml
+Makefile
+API.md
+bin/

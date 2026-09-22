@@ -1,0 +1,12 @@
+/bin/
+.env
+
+# SQLite database and its WAL sidecars
+*.db
+*.db-wal
+*.db-shm
+
+# Container state 
+/data/
+
+.DS_STORE

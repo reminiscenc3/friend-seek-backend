@@ -1,0 +1,48 @@
+@host = http://localhost:8080
+@login = seeker
+@target = target
+
+### health
+GET {{host}}/health
+
+### login
+POST {{host}}/api/v1/auth/login
+Content-Type: application/json
+
+{
+  "login": "{{login}}"
+}
+
+### users
+GET {{host}}/api/v1/users
+X-User-Login: {{login}}
+
+### profile
+GET {{host}}/api/v1/users/profile
+X-User-Login: {{login}}
+
+### note
+PUT {{host}}/api/v1/users/profile/note
+X-User-Login: {{login}}
+Content-Type: application/json
+
+{
+  "note": "ищу у фонтана"
+}
+
+### location
+POST {{host}}/api/v1/location
+X-User-Login: {{target}}
+Content-Type: application/json
+
+{
+  "lat": 24.751244,
+  "lon": 21.618423,
+  "azimuth": 137.4,
+  "accuracy": 8.0,
+  "ts": "2026-09-22T10:31:04.512Z"
+}
+
+### track
+GET {{host}}/api/v1/track/{{target}}
+X-User-Login: {{login}}
